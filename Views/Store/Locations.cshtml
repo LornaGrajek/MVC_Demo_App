@@ -1,0 +1,30 @@
+﻿@model StoreApp.ViewModels.StoreProductsViewModel
+@{
+    ViewBag.Title = "Locations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Locations</h2>
+
+@foreach(var store in Model.Stores)
+{
+    foreach(var product in Model.Products)
+    {
+        if(store.Id == product.StoreId)
+        {
+            <table>
+                <thead>
+                    <tr>
+                        <th>@store.Name, @store.Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@product.Name: @product.Description</td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+    }
+}
+

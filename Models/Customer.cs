@@ -12,6 +12,7 @@ namespace StoreApp.Models
         public int Id { get; set; }
         [Required]
         public string UserName { get; set; }
+
         private string _password; //when creating a custom getter/setter, you must first set a private backing field
         [Required]
         public string Password {

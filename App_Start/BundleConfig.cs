@@ -23,7 +23,7 @@ namespace StoreApp
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.css", //change to your bootstrap theme
                       "~/Content/site.css"));
         }
     }

@@ -17,28 +17,30 @@
 }
 
 <h2>Customers</h2>
+<a href="~/Views/Customer/Users.cshtml">~/Views/Customer/Users.cshtml</a>
 @if (!Model.Any())
 {
     <p>We don't have any customers yet!</p>
 }
 else
 {
-    <table class="table table-bordered table-hover"> @*bootstrap classes*@
+    <table class="table table-bordered table-hover">
+        @*bootstrap classes*@
         <thead>
             <tr>
                 <th>Customers</th>
             </tr>
         </thead>
         <tbody>
-            @foreach(var customer in Model)
+            @foreach (var customer in Model)
             {
                 <tr>
                     <td>@Html.ActionLink(customer.UserName, "Details", "Customer", new { id = customer.Id }, null)</td>
                     @*this links to the details page*@
-                    @*(word displayed on the link, "action name", "controller name", parameter passed into action, 
+                    @*(word displayed on the link, "action name", "controller name", parameter passed into action,
                         this statement always ends in null )*@
                 </tr>
             }
         </tbody>
-    </table> 
+    </table>
 }

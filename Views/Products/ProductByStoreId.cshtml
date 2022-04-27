@@ -1,0 +1,14 @@
+﻿@model IEnumerable<StoreApp.Models.Products>
+@{
+    ViewBag.Title = "ProductByStoreId";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ProductByStoreId</h2>
+
+<ul>
+    @foreach (var product in Model)
+    {
+        <li>@product.Name: @product.Description</li>
+    }
+</ul>

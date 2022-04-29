@@ -9,6 +9,7 @@ namespace StoreApp.Models
     public class Products
     {
         public int Id { get; set; }
+        //[Display(Name = "Store Location")] this property will display the preferred name in a form label if you don't want this model property displayed instead
         public int StoreId { get; set; }
 
         [Required]

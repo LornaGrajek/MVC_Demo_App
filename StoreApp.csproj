@@ -191,6 +191,7 @@
     <Content Include="Views\Products\ProductByStoreId.cshtml" />
     <Content Include="Views\Store\Locations.cshtml" />
     <Content Include="Views\Store\New.cshtml" />
+    <Content Include="Views\Store\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

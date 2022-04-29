@@ -20,6 +20,12 @@ namespace StoreApp.Controllers
         {
             _context.Dispose();
         }
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         // GET: Store
         public ActionResult Locations()
         {
@@ -43,8 +49,17 @@ namespace StoreApp.Controllers
 
         public ActionResult New()
         {
+            var store = new Store();  
             
-            return View();
+            return View(store);
+        }
+
+        [HttpPost] //any action that is not getting data, should be labeled as such 
+        public ActionResult Create(Store store) //modelbinding: the new action returns the model store, and we want to bind our input to this model. so this action takes the parameter of the model from the previous action
+        {
+            _context.Stores.Add(store);
+            _context.SaveChanges(); //this method will add any changes to the dbcontext, update the models, and then generate and run sql statements at the runtime
+            return RedirectToAction("Index", "Store"); //redirects you to another page, "Action", "controller" , can be any action or controller
         }
     }
 }

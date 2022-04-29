@@ -1,0 +1,22 @@
+﻿@model StoreApp.Models.Store
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Store</h2>
+
+@*html.beginform only renders the opening tag of an html object, so wrap in a using block to render the entire tag*@
+@using (Html.BeginForm("Create", "Store"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name) @*html forms should always have a label, for accesibility, but it also gives clarity for input, here we are using a lambda expression to name our input field from a property of our model class*@
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" }) @*anonymous object lets you set a class name for this textbox, form-control is bootstrap*@
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Address) 
+        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" }) 
+    </div>
+
+    @*can also use "checkboxfor", checkboxes do not need to be in a div, otherwise they render funny*@
+}

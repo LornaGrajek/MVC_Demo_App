@@ -10,6 +10,16 @@ namespace StoreApp.Controllers
 {
     public class StoreController : Controller
     {
+        private MyDBContext _context; //dependency injection,  by convention all private fields are < _name > lowercase, prefixed with an underscore
+        public StoreController()
+        {
+            _context = new MyDBContext(); //disposable object
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         // GET: Store
         public ActionResult Locations()
         {
@@ -29,6 +39,12 @@ namespace StoreApp.Controllers
             var viewModel = new StoreProductsViewModel { Stores = stores, Products = products };
 
             return View(viewModel);
+        }
+
+        public ActionResult New()
+        {
+            
+            return View();
         }
     }
 }
